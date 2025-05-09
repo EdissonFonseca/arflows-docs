@@ -1,5 +1,5 @@
 {
-  "name": "arkflows-docs",
+  "name": "arflows-docs",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "deploy:gh-pages": "GIT_USER=EdissonFonseca docusaurus deploy"
+    "deploy:gh-pages": "GIT_USER=EdissonFonseca USE_SSH=true docusaurus deploy"
   },
   "dependencies": {
     "@docusaurus/core": "3.1.1",
