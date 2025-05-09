@@ -10,14 +10,14 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://docs.arkflows.com',
+  url: 'https://github-personal.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/arkflows-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'arkflows', // Usually your GitHub org/user name.
+  organizationName: 'github-personal', // Usually your GitHub org/user name.
   projectName: 'arkflows-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -50,8 +50,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/arkflows/docs/tree/main/',
+          editUrl: 'https://github.com/github-personal/arkflows-docs/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -60,8 +59,7 @@ const config: Config = {
             xslt: true,
           },
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/arkflows/docs/tree/main/',
+          editUrl: 'https://github.com/github-personal/arkflows-docs/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -96,7 +94,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/arkflows',
+          href: 'https://github.com/github-personal/arkflows-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -148,7 +146,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/arkflows',
+              href: 'https://github.com/github-personal/arkflows-docs',
             },
           ],
         },
