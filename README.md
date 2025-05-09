@@ -1,41 +1,32 @@
-# Website
+# Arkflows Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repository contains the official documentation for Arkflows, a Business Process Automation (BPMN) platform that allows organizations to design, implement, and manage business processes efficiently.
 
-### Installation
+## Features
 
-```
-$ yarn
-```
+- Comprehensive user guides
+- API reference documentation
+- Technical architecture documentation
+- Multi-language support (English and Spanish)
+- Interactive examples and tutorials
 
-### Local Development
+## Local Development
 
-```
-$ yarn start
-```
+```bash
+# Install dependencies
+npm install
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+# Start local development server
+npm start
 
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+# Build for production
+npm run build
 ```
 
-Not using SSH:
+## Contributing
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
