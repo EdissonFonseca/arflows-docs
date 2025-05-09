@@ -5,7 +5,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
@@ -14,8 +13,8 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <h1 className="hero__title">Documentación de Arkflows</h1>
+        <p className="hero__subtitle">Plataforma de Automatización de Procesos de Negocio</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
@@ -37,12 +36,12 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.title}
-      description="Documentación de Arkflows - Plataforma de Automatización de Procesos de Negocio">
+      title="Documentación de Arkflows"
+      description="Plataforma de Automatización de Procesos de Negocio">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
       </main>
     </Layout>
   );
-}
+} 

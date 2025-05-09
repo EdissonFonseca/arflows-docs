@@ -2,145 +2,155 @@
 sidebar_position: 2
 ---
 
-# Process Management
+# Guía de Usuario: Gestión de Procesos
 
-## Overview
+## Introducción
 
-Process management in Arkflows allows you to design, implement, and monitor business processes using the BPMN 2.0 standard. This guide will help you understand how to create and manage processes effectively.
+Esta guía le ayudará a crear y gestionar procesos de negocio en Arkflows utilizando el editor BPMN. Aprenderá a diseñar flujos de trabajo, configurar tareas y automatizar procesos de negocio.
 
-## Creating a New Process
+## Crear un Nuevo Proceso
 
-### 1. Access the Process Designer
-1. Navigate to the "Processes" section in the main menu
-2. Click "Create New Process"
-3. Enter a name and description for your process
+1. **Acceder al Editor**
+   - Inicie sesión en Arkflows
+   - Navegue a "Procesos" en el menú principal
+   - Haga clic en "Nuevo Proceso"
 
-### 2. Basic Elements
-- **Start Event**: Marks the beginning of a process
-- **End Event**: Marks the completion of a process
-- **Tasks**: Represent work to be performed
-- **Gateways**: Control the flow of the process
-- **Sequence Flows**: Connect elements in the process
+2. **Configuración Inicial**
+   - Asigne un nombre al proceso
+   - Seleccione una categoría
+   - Defina la descripción
+   - Establezca los permisos de acceso
 
-### 3. Adding Elements
-1. Drag elements from the palette to the canvas
-2. Connect elements using sequence flows
-3. Configure element properties in the properties panel
+## Elementos del Proceso
 
-## Process Configuration
+### 1. Eventos
+- **Eventos de Inicio**: Punto de partida del proceso
+- **Eventos Intermedios**: Puntos de control durante el proceso
+- **Eventos de Fin**: Puntos de finalización del proceso
 
-### 1. Task Types
-- **User Tasks**: Require human interaction
-- **Service Tasks**: Automated system tasks
-- **Script Tasks**: Execute custom scripts
-- **Business Rule Tasks**: Apply business rules
+### 2. Tareas
+- **Tareas de Usuario**: Requieren interacción humana
+- **Tareas de Servicio**: Automatizadas
+- **Tareas de Script**: Ejecutan código personalizado
 
-### 2. Form Integration
-- Attach forms to user tasks
-- Configure form fields and validation
-- Set up dynamic form behavior
+### 3. Gateways
+- **Exclusivo**: Solo una ruta se ejecuta
+- **Paralelo**: Múltiples rutas se ejecutan simultáneamente
+- **Inclusivo**: Rutas basadas en condiciones
 
-### 3. Process Variables
-- Define process variables
-- Set default values
-- Configure variable scope
+## Configuración de Tareas
 
-## Process Execution
+### 1. Tareas de Usuario
+- Asignar responsables
+- Definir formularios
+- Establecer plazos
+- Configurar notificaciones
 
-### 1. Starting a Process
-1. Select the process from the list
-2. Click "Start Process"
-3. Fill in required variables
-4. Submit to begin execution
+### 2. Tareas de Servicio
+- Seleccionar el tipo de servicio
+- Configurar parámetros
+- Manejar errores
+- Establecer reintentos
 
-### 2. Task Management
-- View assigned tasks
-- Complete task actions
-- Track task status
-- Handle task reassignment
+### 3. Tareas de Script
+- Escribir código
+- Definir variables
+- Manejar excepciones
+- Establecer timeouts
 
-### 3. Process Monitoring
-- View process instances
-- Track execution progress
-- Monitor performance metrics
-- Analyze bottlenecks
+## Integración con Sistemas
 
-## Best Practices
+### 1. Conectores Predefinidos
+- Correo electrónico
+- Base de datos
+- API REST
+- Servicios web
 
-### 1. Process Design
-- Keep processes simple and clear
-- Use meaningful names for elements
-- Document process logic
-- Test processes thoroughly
+### 2. Configuración de Conectores
+- Establecer credenciales
+- Definir endpoints
+- Configurar mapeo de datos
+- Establecer políticas de reintento
 
-### 2. Performance
-- Optimize process flow
-- Minimize unnecessary steps
-- Use appropriate task types
-- Implement error handling
+## Variables y Datos
 
-### 3. Maintenance
-- Regular process review
-- Update documentation
-- Monitor performance
-- Address issues promptly
+### 1. Variables de Proceso
+- Crear variables
+- Definir tipos de datos
+- Establecer valores por defecto
+- Configurar alcance
 
-## Troubleshooting
+### 2. Manejo de Datos
+- Mapeo de datos
+- Transformaciones
+- Validaciones
+- Persistencia
 
-### 1. Common Issues
-- Process not starting
-- Tasks not appearing
-- Form submission errors
-- Integration failures
+## Pruebas y Simulación
 
-### 2. Solutions
-- Check process configuration
-- Verify user permissions
-- Review form settings
-- Test integrations
+### 1. Simulación de Proceso
+- Ejecutar simulación
+- Analizar resultados
+- Identificar cuellos de botella
+- Optimizar flujos
 
-### 3. Support
-- Contact support team
-- Check documentation
-- Review error logs
-- Use debugging tools
+### 2. Pruebas de Integración
+- Verificar conectores
+- Validar transformaciones
+- Comprobar manejo de errores
+- Ajustar configuraciones
 
-## Advanced Features
+## Despliegue y Monitoreo
 
-### 1. Subprocesses
-- Create reusable process components
-- Implement complex logic
-- Improve process organization
-- Enhance maintainability
+### 1. Publicación
+- Revisar proceso
+- Validar configuración
+- Publicar versión
+- Activar proceso
 
-### 2. Error Handling
-- Configure error events
-- Set up compensation
-- Implement retry logic
-- Define error boundaries
+### 2. Monitoreo
+- Ver instancias activas
+- Analizar rendimiento
+- Revisar errores
+- Generar reportes
 
-### 3. Process Versioning
-- Manage process versions
-- Track changes
-- Roll back if needed
-- Maintain history
+## Mejores Prácticas
 
-## Integration
+### 1. Diseño de Procesos
+- Mantener procesos simples
+- Documentar decisiones
+- Usar nombres descriptivos
+- Seguir estándares BPMN
 
-### 1. System Integration
-- Connect with external systems
-- Configure API endpoints
-- Set up data mapping
-- Handle responses
+### 2. Gestión de Errores
+- Implementar manejo de excepciones
+- Configurar notificaciones
+- Establecer políticas de reintento
+- Documentar procedimientos
 
-### 2. Event Handling
-- Configure event listeners
-- Process external events
-- Trigger process actions
-- Handle notifications
+### 3. Optimización
+- Revisar rendimiento
+- Eliminar redundancias
+- Optimizar integraciones
+- Actualizar documentación
 
-### 3. Data Management
-- Define data structures
-- Configure data flow
-- Implement data validation
-- Ensure data integrity 
+## Solución de Problemas
+
+### 1. Problemas Comunes
+- Errores de validación
+- Fallos de integración
+- Problemas de rendimiento
+- Errores de configuración
+
+### 2. Herramientas de Diagnóstico
+- Logs del sistema
+- Trazas de proceso
+- Métricas de rendimiento
+- Reportes de error
+
+## Recursos Adicionales
+
+- [Tutoriales en Video](./tutorials)
+- [Ejemplos de Procesos](./examples)
+- [Referencia de API](./api-reference)
+- [Foro de Soporte](./support) 

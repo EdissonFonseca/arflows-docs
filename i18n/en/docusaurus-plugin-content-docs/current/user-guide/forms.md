@@ -2,172 +2,177 @@
 sidebar_position: 3
 ---
 
-# Form Management
+# Guía de Usuario: Gestión de Formularios
 
-## Overview
+## Introducción
 
-Form management in Arkflows allows you to create, configure, and manage dynamic forms that can be integrated with your business processes. This guide will help you understand how to work with forms effectively.
+Los formularios en Arkflows son componentes dinámicos que permiten capturar, validar y procesar datos de manera eficiente. Esta guía le ayudará a crear y gestionar formularios para sus procesos de negocio.
 
-## Creating Forms
+## Crear un Nuevo Formulario
 
-### 1. Form Designer
-1. Navigate to the "Forms" section
-2. Click "Create New Form"
-3. Enter form details and settings
+1. **Acceso al Diseñador**
+   - Navegue a "Formularios" en el menú principal
+   - Haga clic en "Nuevo Formulario"
+   - Seleccione una plantilla o comience desde cero
 
-### 2. Form Elements
-- **Text Fields**: Single-line and multi-line text input
-- **Number Fields**: Numeric input with validation
-- **Date Fields**: Date and time selection
-- **Select Fields**: Dropdown and multi-select options
-- **Checkboxes**: Boolean and multiple choice options
-- **File Upload**: Document and media upload
-- **Custom Fields**: Advanced field types
+2. **Configuración Básica**
+   - Asigne un nombre al formulario
+   - Defina la descripción
+   - Establezca permisos de acceso
+   - Configure el diseño general
 
-### 3. Form Layout
-- Drag and drop elements
-- Configure element properties
-- Set up form sections
-- Define responsive behavior
+## Componentes del Formulario
 
-## Form Configuration
+### 1. Campos Básicos
+- **Texto**: Campos de entrada de texto
+- **Número**: Campos numéricos
+- **Fecha**: Selectores de fecha
+- **Select**: Listas desplegables
+- **Checkbox**: Casillas de verificación
+- **Radio**: Botones de opción
 
-### 1. Field Properties
-- Set field labels
-- Configure validation rules
-- Define default values
-- Add help text
-- Set field dependencies
+### 2. Campos Avanzados
+- **Archivo**: Carga de documentos
+- **Imagen**: Carga de imágenes
+- **Firma**: Captura de firmas
+- **Tabla**: Datos tabulares
+- **Mapa**: Selección de ubicaciones
 
-### 2. Form Settings
-- Configure form title
-- Set submission behavior
-- Define success messages
-- Configure error handling
-- Set up notifications
+### 3. Componentes de Diseño
+- **Secciones**: Agrupación de campos
+- **Pestañas**: Organización por categorías
+- **Acordeones**: Contenido colapsable
+- **Espaciadores**: Control de diseño
 
-### 3. Access Control
-- Define form permissions
-- Set user restrictions
-- Configure role-based access
-- Manage form visibility
+## Configuración de Campos
 
-## Form Integration
+### 1. Propiedades Generales
+- Etiqueta del campo
+- Nombre técnico
+- Tipo de dato
+- Valor por defecto
+- Placeholder
 
-### 1. Process Integration
-- Attach forms to process tasks
-- Configure form variables
-- Set up data mapping
-- Handle form submissions
+### 2. Validaciones
+- Campos requeridos
+- Patrones de validación
+- Rangos de valores
+- Mensajes de error
+- Validaciones personalizadas
 
-### 2. Data Storage
-- Configure data persistence
-- Set up database tables
-- Define data relationships
-- Manage data retention
+### 3. Comportamiento
+- Visibilidad condicional
+- Dependencias entre campos
+- Cálculos automáticos
+- Acciones personalizadas
 
-### 3. External Systems
-- Connect with external APIs
-- Configure data exchange
-- Handle webhooks
-- Manage integrations
+## Integración con Datos
 
-## Form Features
+### 1. Fuentes de Datos
+- Bases de datos
+- APIs externas
+- Variables de proceso
+- Servicios web
 
-### 1. Dynamic Behavior
-- Conditional fields
-- Dynamic validation
-- Field calculations
-- Real-time updates
+### 2. Mapeo de Datos
+- Asignación de campos
+- Transformaciones
+- Validaciones cruzadas
+- Persistencia de datos
 
-### 2. User Experience
-- Form progress tracking
-- Auto-save functionality
-- Mobile responsiveness
-- Accessibility features
+## Diseño y Estilo
 
-### 3. Advanced Features
-- Form templates
-- Version control
-- Form analytics
-- A/B testing
+### 1. Personalización Visual
+- Temas y colores
+- Fuentes y tamaños
+- Espaciado y márgenes
+- Diseño responsivo
 
-## Best Practices
+### 2. Componentes de UI
+- Botones y acciones
+- Mensajes y alertas
+- Iconos y gráficos
+- Elementos de navegación
 
-### 1. Form Design
-- Keep forms simple
-- Use clear labels
-- Group related fields
-- Provide clear instructions
+## Lógica de Negocio
 
-### 2. Validation
-- Implement proper validation
-- Show clear error messages
-- Validate on both client and server
-- Handle edge cases
+### 1. Reglas de Validación
+- Validaciones en tiempo real
+- Reglas de negocio
+- Cálculos automáticos
+- Condiciones de visibilidad
 
-### 3. Performance
-- Optimize form loading
-- Minimize dependencies
-- Cache form data
-- Handle large forms
+### 2. Acciones Personalizadas
+- Scripts de cliente
+- Llamadas a APIs
+- Actualizaciones de datos
+- Notificaciones
 
-## Troubleshooting
+## Pruebas y Validación
 
-### 1. Common Issues
-- Form submission errors
-- Validation problems
-- Integration failures
-- Performance issues
+### 1. Pruebas de Formulario
+- Validación de campos
+- Pruebas de integración
+- Pruebas de usabilidad
+- Pruebas de rendimiento
 
-### 2. Solutions
-- Check form configuration
-- Verify validation rules
-- Test integrations
-- Monitor performance
+### 2. Depuración
+- Herramientas de desarrollo
+- Logs de error
+- Trazas de ejecución
+- Validación de datos
 
-### 3. Support
-- Contact support team
-- Check documentation
-- Review error logs
-- Use debugging tools
+## Despliegue y Monitoreo
 
-## Advanced Topics
+### 1. Publicación
+- Revisión de formulario
+- Pruebas de integración
+- Publicación de versión
+- Activación
 
-### 1. Custom Fields
-- Create custom field types
-- Implement field logic
-- Handle custom validation
-- Manage field dependencies
+### 2. Monitoreo
+- Uso del formulario
+- Errores y excepciones
+- Rendimiento
+- Métricas de usuario
 
-### 2. Form Templates
-- Create form templates
-- Share templates
-- Version templates
-- Manage template access
+## Mejores Prácticas
 
-### 3. Form Analytics
-- Track form usage
-- Analyze completion rates
-- Monitor performance
-- Generate reports
+### 1. Diseño de Formularios
+- Mantener formularios simples
+- Usar validaciones apropiadas
+- Implementar feedback claro
+- Optimizar para móviles
 
-## Security
+### 2. Experiencia de Usuario
+- Flujo intuitivo
+- Mensajes claros
+- Ayuda contextual
+- Accesibilidad
 
-### 1. Data Protection
-- Encrypt sensitive data
-- Implement access control
-- Secure form submissions
-- Handle file uploads
+### 3. Rendimiento
+- Optimizar carga
+- Minimizar validaciones
+- Caché de datos
+- Lazy loading
 
-### 2. Validation
-- Server-side validation
-- Input sanitization
-- CSRF protection
-- Rate limiting
+## Solución de Problemas
 
-### 3. Compliance
-- GDPR compliance
-- Data retention
-- Privacy settings
-- Audit logging 
+### 1. Problemas Comunes
+- Errores de validación
+- Problemas de integración
+- Errores de renderizado
+- Problemas de rendimiento
+
+### 2. Herramientas de Diagnóstico
+- Consola de desarrollo
+- Logs del sistema
+- Herramientas de monitoreo
+- Reportes de error
+
+## Recursos Adicionales
+
+- [Tutoriales en Video](./tutorials)
+- [Ejemplos de Formularios](./examples)
+- [Referencia de API](./api-reference)
+- [Foro de Soporte](./support) 

@@ -54,6 +54,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           editUrl: 'https://github.com/EdissonFonseca/arflows-docs/tree/main/',
+          routeBasePath: '/',
+          path: 'i18n/en/docusaurus-plugin-content-docs/current',
         },
         blog: {
           showReadingTime: true,
@@ -102,15 +104,15 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/intro',
+              to: '/',
             },
             {
               label: 'API Reference',
-              to: '/docs/api-reference/overview',
+              to: '/api-reference/overview',
             },
             {
               label: 'User Guide',
-              to: '/docs/user-guide/processes',
+              to: '/user-guide/processes',
             },
           ],
         },

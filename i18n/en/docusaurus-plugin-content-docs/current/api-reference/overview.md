@@ -2,232 +2,359 @@
 sidebar_position: 1
 ---
 
-# API Reference Overview
+# Referencia de API
 
-## Introduction
+## Introducción
 
-The Arkflows API provides a comprehensive set of endpoints for integrating with the platform programmatically. This reference guide details the available endpoints, authentication methods, and best practices for API usage.
+La API de Arkflows proporciona una interfaz programática para interactuar con la plataforma. Esta documentación detalla los endpoints disponibles, sus parámetros y respuestas.
 
-## Authentication
+## Autenticación
 
-### 1. API Keys
-```javascript
-const headers = {
-  'Authorization': 'Bearer YOUR_API_KEY',
-  'Content-Type': 'application/json'
-};
+### OAuth 2.0
+
+```http
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&
+client_id=YOUR_CLIENT_ID&
+client_secret=YOUR_CLIENT_SECRET
 ```
 
-### 2. OAuth 2.0
-```javascript
-// OAuth Configuration
-const config = {
-  clientId: 'YOUR_CLIENT_ID',
-  clientSecret: 'YOUR_CLIENT_SECRET',
-  tokenUrl: 'https://api.arkflows.com/oauth/token'
-};
+### JWT
+
+```http
+GET /api/v1/resource
+Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
-### 3. JWT
-```javascript
-// JWT Token Structure
+## Endpoints Principales
+
+### Procesos
+
+#### Listar Procesos
+```http
+GET /api/v1/processes
+```
+
+**Parámetros de Query:**
+- `page`: Número de página (default: 1)
+- `limit`: Elementos por página (default: 20)
+- `status`: Estado del proceso
+- `category`: Categoría del proceso
+
+**Respuesta:**
+```json
 {
-  "header": {
-    "alg": "HS256",
-    "typ": "JWT"
-  },
-  "payload": {
-    "sub": "user_id",
-    "exp": "expiration_time"
+  "data": [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "status": "string",
+      "category": "string",
+      "createdAt": "string",
+      "updatedAt": "string"
+    }
+  ],
+  "pagination": {
+    "total": "number",
+    "page": "number",
+    "limit": "number"
   }
 }
 ```
 
-## Base URL
-
-All API requests should be made to:
-```
-https://api.arkflows.com/v1
-```
-
-## Endpoints
-
-### 1. Process Management
+#### Crear Proceso
 ```http
-GET /processes
-POST /processes
-GET /processes/{id}
-PUT /processes/{id}
-DELETE /processes/{id}
+POST /api/v1/processes
+Content-Type: application/json
+
+{
+  "name": "string",
+  "description": "string",
+  "category": "string",
+  "definition": "string"
+}
 ```
 
-### 2. Form Management
+#### Obtener Proceso
 ```http
-GET /forms
-POST /forms
-GET /forms/{id}
-PUT /forms/{id}
-DELETE /forms/{id}
+GET /api/v1/processes/{processId}
 ```
 
-### 3. Task Management
+#### Actualizar Proceso
 ```http
-GET /tasks
-POST /tasks
-GET /tasks/{id}
-PUT /tasks/{id}
-DELETE /tasks/{id}
+PUT /api/v1/processes/{processId}
+Content-Type: application/json
+
+{
+  "name": "string",
+  "description": "string",
+  "category": "string",
+  "definition": "string"
+}
 ```
 
-## Request/Response Format
+#### Eliminar Proceso
+```http
+DELETE /api/v1/processes/{processId}
+```
 
-### 1. Request Format
+### Formularios
+
+#### Listar Formularios
+```http
+GET /api/v1/forms
+```
+
+**Parámetros de Query:**
+- `page`: Número de página
+- `limit`: Elementos por página
+- `type`: Tipo de formulario
+
+**Respuesta:**
 ```json
 {
-  "method": "POST",
-  "headers": {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_KEY"
-  },
-  "body": {
-    "name": "Process Name",
-    "description": "Process Description"
+  "data": [
+    {
+      "id": "string",
+      "name": "string",
+      "type": "string",
+      "fields": "array",
+      "createdAt": "string",
+      "updatedAt": "string"
+    }
+  ],
+  "pagination": {
+    "total": "number",
+    "page": "number",
+    "limit": "number"
   }
 }
 ```
 
-### 2. Response Format
-```json
+#### Crear Formulario
+```http
+POST /api/v1/forms
+Content-Type: application/json
+
 {
-  "status": "success",
-  "data": {
-    "id": "process_id",
-    "name": "Process Name",
-    "created_at": "2024-03-20T10:00:00Z"
-  },
-  "message": "Process created successfully"
+  "name": "string",
+  "type": "string",
+  "fields": "array"
 }
 ```
 
-## Error Handling
+#### Obtener Formulario
+```http
+GET /api/v1/forms/{formId}
+```
 
-### 1. Error Codes
-- 400: Bad Request
-- 401: Unauthorized
-- 403: Forbidden
-- 404: Not Found
-- 429: Too Many Requests
-- 500: Internal Server Error
+#### Actualizar Formulario
+```http
+PUT /api/v1/forms/{formId}
+Content-Type: application/json
 
-### 2. Error Response
+{
+  "name": "string",
+  "type": "string",
+  "fields": "array"
+}
+```
+
+#### Eliminar Formulario
+```http
+DELETE /api/v1/forms/{formId}
+```
+
+### Integraciones
+
+#### Listar Conectores
+```http
+GET /api/v1/connectors
+```
+
+**Parámetros de Query:**
+- `type`: Tipo de conector
+- `status`: Estado del conector
+
+**Respuesta:**
 ```json
 {
-  "status": "error",
-  "code": 400,
-  "message": "Invalid request parameters",
-  "details": {
-    "field": "name",
-    "error": "Name is required"
+  "data": [
+    {
+      "id": "string",
+      "name": "string",
+      "type": "string",
+      "status": "string",
+      "config": "object",
+      "createdAt": "string",
+      "updatedAt": "string"
+    }
+  ]
+}
+```
+
+#### Crear Conector
+```http
+POST /api/v1/connectors
+Content-Type: application/json
+
+{
+  "name": "string",
+  "type": "string",
+  "config": "object"
+}
+```
+
+#### Probar Conector
+```http
+POST /api/v1/connectors/{connectorId}/test
+Content-Type: application/json
+
+{
+  "config": "object"
+}
+```
+
+### Instancias de Proceso
+
+#### Iniciar Proceso
+```http
+POST /api/v1/processes/{processId}/instances
+Content-Type: application/json
+
+{
+  "variables": "object"
+}
+```
+
+#### Listar Instancias
+```http
+GET /api/v1/processes/{processId}/instances
+```
+
+**Parámetros de Query:**
+- `status`: Estado de la instancia
+- `startDate`: Fecha de inicio
+- `endDate`: Fecha de fin
+
+#### Obtener Instancia
+```http
+GET /api/v1/processes/{processId}/instances/{instanceId}
+```
+
+#### Completar Tarea
+```http
+POST /api/v1/tasks/{taskId}/complete
+Content-Type: application/json
+
+{
+  "variables": "object"
+}
+```
+
+## Códigos de Estado
+
+- `200 OK`: Solicitud exitosa
+- `201 Created`: Recurso creado
+- `400 Bad Request`: Solicitud inválida
+- `401 Unauthorized`: No autenticado
+- `403 Forbidden`: No autorizado
+- `404 Not Found`: Recurso no encontrado
+- `500 Internal Server Error`: Error del servidor
+
+## Manejo de Errores
+
+```json
+{
+  "error": {
+    "code": "string",
+    "message": "string",
+    "details": "object"
   }
 }
 ```
 
-## Rate Limiting
+## Límites y Cuotas
 
-### 1. Limits
-- Standard: 100 requests per minute
-- Premium: 1000 requests per minute
-- Enterprise: Custom limits
+- **Rate Limiting**: 1000 requests por hora
+- **Tamaño máximo de payload**: 10MB
+- **Tiempo máximo de timeout**: 30 segundos
 
-### 2. Headers
-```
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 95
-X-RateLimit-Reset: 1616234400
-```
+## Versiones
 
-## SDK Examples
+- **v1**: Versión actual
+- **v2**: En desarrollo (beta)
 
-### 1. JavaScript/Node.js
+## SDKs
+
+- JavaScript/TypeScript
+- Python
+- Java
+- .NET
+
+## Ejemplos
+
+### JavaScript
+
 ```javascript
 const arkflows = require('@arkflows/sdk');
 
 const client = new arkflows.Client({
-  apiKey: 'YOUR_API_KEY'
+  clientId: 'YOUR_CLIENT_ID',
+  clientSecret: 'YOUR_CLIENT_SECRET'
 });
 
-// Create a process
-client.processes.create({
-  name: 'New Process',
-  description: 'Process Description'
-}).then(response => {
-  console.log(response);
+// Listar procesos
+const processes = await client.processes.list();
+
+// Crear proceso
+const process = await client.processes.create({
+  name: 'Mi Proceso',
+  description: 'Descripción del proceso',
+  category: 'General'
+});
+
+// Iniciar instancia
+const instance = await client.processes.startInstance(process.id, {
+  variables: {
+    key: 'value'
+  }
 });
 ```
 
-### 2. Python
+### Python
+
 ```python
 from arkflows import Client
 
-client = Client(api_key='YOUR_API_KEY')
-
-# Create a process
-response = client.processes.create(
-    name='New Process',
-    description='Process Description'
+client = Client(
+    client_id='YOUR_CLIENT_ID',
+    client_secret='YOUR_CLIENT_SECRET'
 )
-print(response)
+
+# Listar procesos
+processes = client.processes.list()
+
+# Crear proceso
+process = client.processes.create(
+    name='Mi Proceso',
+    description='Descripción del proceso',
+    category='General'
+)
+
+# Iniciar instancia
+instance = client.processes.start_instance(
+    process.id,
+    variables={'key': 'value'}
+)
 ```
 
-### 3. Java
-```java
-import com.arkflows.client.ArkflowsClient;
+## Recursos Adicionales
 
-ArkflowsClient client = new ArkflowsClient("YOUR_API_KEY");
-
-// Create a process
-Process process = client.processes().create(
-    Process.builder()
-        .name("New Process")
-        .description("Process Description")
-        .build()
-);
-```
-
-## Best Practices
-
-### 1. Authentication
-- Store API keys securely
-- Rotate keys regularly
-- Use environment variables
-- Implement proper error handling
-
-### 2. Performance
-- Implement caching
-- Use pagination
-- Optimize requests
-- Handle rate limits
-
-### 3. Security
-- Use HTTPS
-- Validate input
-- Sanitize output
-- Monitor usage
-
-## Support
-
-### 1. Documentation
-- API Reference
-- SDK Documentation
-- Integration Guides
-- Best Practices
-
-### 2. Support Channels
-- Email: api-support@arkflows.com
-- Developer Portal: https://developers.arkflows.com
-- Community Forum: https://community.arkflows.com
-
-### 3. Status
-- API Status: https://status.arkflows.com
-- Maintenance Schedule
-- Release Notes 
+- [Guía de Inicio Rápido](./quickstart)
+- [Ejemplos de Código](./examples)
+- [Changelog](./changelog)
+- [Soporte](./support) 

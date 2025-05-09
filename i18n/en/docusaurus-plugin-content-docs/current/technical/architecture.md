@@ -2,166 +2,132 @@
 sidebar_position: 1
 ---
 
-# Technical Architecture
+# Arquitectura Técnica
 
-## Overview
+## Visión General
 
-Arkflows is built on a .NET-based architecture that enables efficient business process management and integration with external systems. The platform is organized into several specialized components that work together to provide a comprehensive BPM solution.
+Arkflows está construido sobre una arquitectura moderna y escalable que permite la gestión eficiente de procesos de negocio y la integración con sistemas externos.
 
-## Main Components
+## Componentes Principales
 
-### 1. Frontend Components
-- **Arkflows.Designer**: Web-based process designer interface
-  - ASP.NET Web Forms application
-  - Custom JavaScript components
-  - CSS and font resources
-  - Authentication and session management
+### 1. Frontend
+- **Framework**: React.js
+- **Editor BPMN**: bpmn-js
+- **Gestión de Estado**: Redux
+- **UI Components**: Material-UI
+- **Formularios**: React Hook Form
 
-### 2. Backend Services
-- **Arkflows.API**: Main API service
-  - ASP.NET Web API
-  - RESTful endpoints
-  - Authentication and authorization
-  - Service integrations
+### 2. Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Base de Datos**: PostgreSQL
+- **Motor de Procesos**: Camunda
+- **Caché**: Redis
 
-- **Arkflows.Services**: Core business services
-  - Process execution engine
-  - Task management
-  - Form processing
-  - Integration services
+### 3. Servicios de Integración
+- **API Gateway**: Kong
+- **Message Broker**: RabbitMQ
+- **Servicio de Correo**: SendGrid
+- **Almacenamiento**: AWS S3
 
-### 3. Domain and Data
-- **Arkflows.Domain**: Business logic and entities
-  - Process definitions
-  - Form models
-  - Business rules
-  - Domain services
-
-- **Arkflows.Data**: Data access layer
-  - Database interactions
-  - Data models
-  - Repository implementations
-  - Data migrations
-
-### 4. Additional Components
-- **Arkflows.Files**: File management service
-- **Arkflows.Analyst**: Analytics and reporting
-- **Arkflows.DB**: Database management
-- **Arkflows.WindowsService**: Background services
-
-## Architecture Diagram
+## Diagrama de Arquitectura
 
 ```mermaid
 graph TD
-    A[Web Client] --> B[Arkflows.Designer]
-    B --> C[Arkflows.API]
-    C --> D[Arkflows.Services]
-    D --> E[Arkflows.Domain]
-    E --> F[Arkflows.Data]
-    F --> G[Database]
-    D --> H[Arkflows.Files]
-    D --> I[Arkflows.Analyst]
-    D --> J[External Services]
+    A[Cliente Web] --> B[API Gateway]
+    B --> C[Servicio de Autenticación]
+    B --> D[Servicio de Procesos]
+    B --> E[Servicio de Formularios]
+    B --> F[Servicio de Integración]
+    D --> G[Motor BPMN]
+    D --> H[Base de Datos]
+    F --> I[Message Broker]
+    F --> J[Servicios Externos]
 ```
 
-## Data Flow
+## Flujo de Datos
 
-1. **Request Processing**
-   - Client requests handled by Arkflows.Designer
-   - API requests processed by Arkflows.API
-   - Business logic executed in Arkflows.Services
-   - Data operations managed by Arkflows.Data
+1. **Recepción de Solicitudes**
+   - El cliente envía solicitudes a través del API Gateway
+   - Validación de autenticación y autorización
+   - Enrutamiento a los servicios correspondientes
 
-2. **Process Execution**
-   - Process definitions stored in domain layer
-   - Execution managed by service layer
-   - State persisted in database
-   - Events handled by Windows Service
+2. **Procesamiento de Procesos**
+   - El motor BPMN ejecuta los procesos definidos
+   - Gestión de estados y transiciones
+   - Persistencia de datos en la base de datos
 
-3. **Integration Flow**
-   - External system connections via API
-   - File operations through Files service
-   - Analytics processed by Analyst service
-   - Background tasks in Windows Service
+3. **Integración con Sistemas**
+   - Comunicación asíncrona a través del Message Broker
+   - Manejo de colas y eventos
+   - Integración con sistemas externos
 
-## Security
+## Seguridad
 
-### 1. Authentication
-- ASP.NET Forms Authentication
-- Session management
-- Secure cookie handling
-- Login/Logout flows
+### 1. Autenticación
+- OAuth 2.0 / OpenID Connect
+- JWT para tokens de sesión
+- Autenticación multifactor
 
-### 2. Authorization
-- Role-based access control
-- Permission management
-- Resource protection
-- Action auditing
+### 2. Autorización
+- Control de acceso basado en roles (RBAC)
+- Políticas de seguridad granulares
+- Auditoría de acciones
 
-### 3. Data Protection
-- Secure configuration
-- Encrypted connections
-- Protected resources
-- Secure file handling
+### 3. Protección de Datos
+- Cifrado en tránsito (TLS)
+- Cifrado en reposo
+- Gestión segura de secretos
 
-## Scalability
+## Escalabilidad
 
-### 1. Application Scaling
-- Load balancing support
-- Session management
-- Resource optimization
-- Caching strategies
+### 1. Horizontal
+- Balanceo de carga
+- Replicación de servicios
+- Distribución geográfica
 
-### 2. Data Scaling
-- Database optimization
-- Query performance
-- Connection management
-- Data partitioning
+### 2. Vertical
+- Optimización de recursos
+- Caché distribuido
+- Particionamiento de datos
 
-## Monitoring and Logging
+## Monitoreo y Logging
 
-### 1. Application Monitoring
-- NLog configuration
-- Error tracking
-- Performance monitoring
-- Usage analytics
+### 1. Métricas
+- Prometheus para recolección
+- Grafana para visualización
+- Alertas configurables
 
-### 2. System Monitoring
-- Windows Service monitoring
-- Resource utilization
-- Health checks
-- Alert configuration
+### 2. Logging
+- ELK Stack
+- Trazabilidad de procesos
+- Análisis de rendimiento
 
-## Deployment
+## Despliegue
 
-### 1. Application Deployment
-- Web application deployment
-- Service deployment
-- Configuration management
-- Environment setup
+### 1. Infraestructura
+- Contenedores Docker
+- Orquestación con Kubernetes
+- CI/CD con GitHub Actions
 
-### 2. Database Deployment
-- Schema management
-- Data migration
-- Backup procedures
-- Recovery processes
+### 2. Ambientes
+- Desarrollo
+- Pruebas
+- Producción
 
-## Technical Considerations
+## Consideraciones Técnicas
 
-### 1. Performance
-- Query optimization
-- Resource management
-- Caching implementation
-- Response optimization
+### 1. Rendimiento
+- Optimización de consultas
+- Caché de datos frecuentes
+- Compresión de respuestas
 
-### 2. Availability
-- High availability setup
-- Disaster recovery
-- Backup strategies
-- Failover procedures
+### 2. Disponibilidad
+- Alta disponibilidad
+- Recuperación ante desastres
+- Backups automáticos
 
-### 3. Maintainability
-- Code organization
-- Documentation
-- Testing strategy
-- Update procedures 
+### 3. Mantenibilidad
+- Código modular
+- Documentación técnica
+- Pruebas automatizadas 

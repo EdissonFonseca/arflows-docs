@@ -6,25 +6,350 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Colores principales */
+  --ifm-color-primary: #009BDB;
+  --ifm-color-primary-dark: #0A66A5;
+  --ifm-color-primary-darker: #065694;
+  --ifm-color-primary-darkest: #2F323A;
+  --ifm-color-primary-light: #5091CD;
+  --ifm-color-primary-lighter: #28B1BF;
+  --ifm-color-primary-lightest: #EDEEF0;
+
+  /* Colores de acento */
+  --ifm-color-secondary: #E7C01F;
+  --ifm-color-secondary-dark: #CF6630;
+  --ifm-color-secondary-darker: #F47B1F;
+  --ifm-color-secondary-darkest: #A01127;
+  --ifm-color-secondary-light: #F5E49D;
+  --ifm-color-secondary-lighter: #C1D38D;
+  --ifm-color-secondary-lightest: #EA3250;
+
+  /* Colores de éxito y error */
+  --ifm-color-success: #9AB647;
+  --ifm-color-success-dark: #9EC944;
+  --ifm-color-success-darker: #C1D38D;
+  --ifm-color-success-darkest: #87868A;
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #5091CD;
+  --ifm-color-primary-dark: #009BDB;
+  --ifm-color-primary-darker: #0A66A5;
+  --ifm-color-primary-darkest: #065694;
+  --ifm-color-primary-light: #28B1BF;
+  --ifm-color-primary-lighter: #EDEEF0;
+  --ifm-color-primary-lightest: #F5E49D;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for Arkflows */
+.hero {
+  background: linear-gradient(135deg, 
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-lighter) 50%,
+    var(--ifm-color-primary-darker) 100%
+  );
+  color: white;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg,
+    rgba(231, 192, 31, 0.1) 0%,
+    rgba(0, 155, 219, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hero__buttons .button {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary) 0%,
+    var(--ifm-color-secondary-light) 100%
+  );
+  color: var(--ifm-color-primary-darkest);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero__buttons .button:hover {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary-light) 0%,
+    var(--ifm-color-secondary) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom navbar styles */
+.navbar {
+  background: linear-gradient(to right,
+    var(--ifm-color-primary-darkest) 0%,
+    var(--ifm-color-primary-darker) 100%
+  );
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__logo {
+  height: 2.5rem;
+}
+
+.navbar__link {
+  color: var(--ifm-color-primary-lightest);
+  transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-secondary);
+}
+
+/* Custom footer styles */
+.footer {
+  background: linear-gradient(to right,
+    var(--ifm-color-primary-darkest) 0%,
+    var(--ifm-color-primary-darker) 100%
+  );
+  color: var(--ifm-color-primary-lightest);
+}
+
+.footer__link-item {
+  color: var(--ifm-color-primary-light);
+  transition: color 0.3s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-secondary);
+}
+
+/* Custom card styles */
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary-lightest) 0%,
+    white 100%
+  );
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom sidebar styles */
+.menu__link {
+  border-radius: 0.5rem;
+  margin: 0.2rem 0;
+  color: var(--ifm-color-primary-dark);
+  transition: all 0.3s ease;
+}
+
+.menu__link:hover {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary-lightest) 0%,
+    var(--ifm-color-primary-light) 100%
+  );
+  color: var(--ifm-color-primary);
+}
+
+/* Custom code block styles */
+pre {
+  border-radius: 0.5rem;
+  border: 1px solid var(--ifm-color-primary-light);
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary-lightest) 0%,
+    white 100%
+  );
+}
+
+/* Custom table styles */
+table {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-primary-light);
+}
+
+thead {
+  background: linear-gradient(to right,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-dark) 100%
+  );
+  color: white;
+}
+
+/* Custom button styles */
+.button {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-dark) 100%
+  );
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button--primary:hover {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary-dark) 0%,
+    var(--ifm-color-primary) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button--secondary {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary) 0%,
+    var(--ifm-color-secondary-light) 100%
+  );
+  color: var(--ifm-color-primary-darkest);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button--secondary:hover {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary-light) 0%,
+    var(--ifm-color-secondary) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom alert styles */
+.alert {
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.alert--success {
+  background: linear-gradient(135deg,
+    var(--ifm-color-success-lightest) 0%,
+    var(--ifm-color-success) 100%
+  );
+  color: var(--ifm-color-success-darkest);
+}
+
+.alert--warning {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary-lightest) 0%,
+    var(--ifm-color-secondary-light) 100%
+  );
+  color: var(--ifm-color-secondary-darkest);
+}
+
+.alert--error {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary-lightest) 0%,
+    var(--ifm-color-secondary-darkest) 100%
+  );
+  color: white;
+}
+
+/* Custom badge styles */
+.badge {
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+.badge--primary {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-dark) 100%
+  );
+  color: white;
+}
+
+.badge--secondary {
+  background: linear-gradient(135deg,
+    var(--ifm-color-secondary) 0%,
+    var(--ifm-color-secondary-light) 100%
+  );
+  color: var(--ifm-color-primary-darkest);
+}
+
+/* Custom tag styles */
+.tag {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary-lightest) 0%,
+    var(--ifm-color-primary-light) 100%
+  );
+  color: var(--ifm-color-primary-dark);
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary-light) 0%,
+    var(--ifm-color-primary) 100%
+  );
+  color: white;
+}
+
+/* Language dropdown styles */
+.navbar__items--right .dropdown {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.navbar__items--right .dropdown__menu {
+  background: var(--ifm-color-primary-darkest);
+  border: 1px solid var(--ifm-color-primary-darker);
+}
+
+.navbar__items--right .dropdown__link {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.navbar__items--right .dropdown__link:hover {
+  color: var(--ifm-color-secondary);
+  background: var(--ifm-color-primary-darker);
 }
