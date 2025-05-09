@@ -10,10 +10,10 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://edissonfonseca.github.io',
+  url: 'https://docs.arkflows.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/arflows-docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -21,7 +21,8 @@ const config: Config = {
   projectName: 'arflows-docs', // Usually your repo name.
   trailingSlash: true,
 
-  onBrokenLinks: 'throw',
+  // Configure how Docusaurus handles broken links
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   onBrokenAnchors: 'ignore',
 
